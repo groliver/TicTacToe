@@ -25,7 +25,7 @@ def horizCheck(matrix):
     for i in range(0,3):  
         if matrix[i][0]==matrix[i][1]==matrix[i][2] and  matrix[i][0] != 0.0:
             win=True
-            if matrix[i-1][1] == 2.0:
+            if matrix[i][1] == 2.0:
                 print("the winner is x!")
             else:
                 print("the winner is o!")
@@ -36,7 +36,7 @@ def vertCheck(matrix):
     for i in range(0, 3):
         if matrix[0][i]==matrix[1][i]==matrix[2][i] and  matrix[1][i] != 0.0:
             win=True
-            if matrix[i-1][1] == 2.0:
+            if matrix[i][1] == 2.0:
                 print("the winner is x!")
             else:
                 print("the winner is o!")  
@@ -279,13 +279,16 @@ def smartMove(movesRemaining):
         movetemp=movelist.append(move)
         b=0
     
-        for i in range(1, 10 +1):
+        for j in range(1, 10 +1):
             bias = controlledMatch(movetemp)
             b+=bias
         if b >= i:
             movefinal = move
     return movefinal
             
+
+''' consider wtg=
+ np.zeros((9,9)'''
 wtg=np.array([[0,0,0,0,0,0,0,0,0],
              [0,0,0,0,0,0,0,0,0],
              [0,0,0,0,0,0,0,0,0],
